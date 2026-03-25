@@ -1,0 +1,60 @@
+<!-- Declara que este é um documento HTML5 -->
+<!DOCTYPE html>
+<!-- Tag raiz em português brasileiro -->
+<html lang="pt-br">
+<!-- Cabeçalho com metadados e configurações da página -->
+<head>
+    <!-- Define a codificação de caracteres (suporta acentos) -->
+    <meta charset="UTF-8">
+    <!-- Responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página (aparece na aba do navegador) -->
+    <title>Net</title>
+    <!-- Importa arquivo CSS externo -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!-- Corpo da página -->
+<body>
+    <!-- Cabeçalho com logo -->
+    <header>
+        <!-- Título do logo Netflix -->
+        <h2 class="logo">Netflix</h2>
+    </header>
+<!-- Conteúdo principal da página -->
+<main>
+    <!-- Seção semântica de seleção de perfis -->
+    <section class="profile-selection">
+        <!-- Título principal -->
+        <h1>Quem está assistindo?</h1>
+        <!-- Container dos perfis de usuários -->
+        <div class="profiles">
+            <!-- Perfil do usuário 1 -->
+            <div class="profile">
+                <!-- Link para página home -->
+                <a href="home.html">
+                    <!-- Imagem do perfil -->
+                    <img src="/assets/perfil01.png" alt="Imagem de um gato gordo" width="150px">
+                    <!-- Nome do perfil -->
+                    <p>Usuário 1</p>
+                </a>
+            </div>
+            <!-- Perfil do usuário 2 -->
+            <div class="profile">
+                <a href="home.html">
+                    <img src="/assets/perfil02.png" alt="Imagem de uma gata magra" width="150px">
+                    <p>Usuário 2</p>
+                </a>
+            </div>
+            <!-- Perfil para adicionar novo usuário -->
+            <div class="profile add-profile">
+                <a href="home.html">
+                    <img src="/assets/perfil-adicionar.png" alt="Imagem de adição" width="150px">
+                    <p>Adicionar Usuário</p>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+<!-- Fim do documento HTML -->
+</html>

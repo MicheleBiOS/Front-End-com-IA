@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Importa arquivo JavaScript externo -->
     <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/profile.js" defer></script>
 </head>
 <!-- Corpo da página -->
 <body>
@@ -22,10 +23,14 @@
         <!-- Título do logo Netflix -->
         <h2 class="logo">Netflix</h2>
         <!-- Botão para alternar entre modo escuro e claro -->
-        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
-            <span class="sun-icon">☀️</span>
-            <span class="moon-icon">🌙</span>
-        </button>
+        <label class="switch">
+            <input id="theme-toggle" type="checkbox">
+            <span class="slider">
+                <span class="icon moon">🌙</span>
+                <span class="icon sun">☀️</span>
+            </span>
+        </label>
+        
     </header>
 <!-- Conteúdo principal da página -->
 <main>
@@ -38,16 +43,16 @@
             <!-- Perfil do usuário 1 -->
             <li class="profile">
                 <!-- Link para página home -->
-                <a href="home.html">
+                <a href="assets/netflix-plataform-main/catalogo/catalogo.html">
                     <!-- Imagem do perfil -->
                     <img src="./assets/perfil01.png" alt="Imagem de um gato gordo" width="150px">
                     <!-- Nome do perfil -->
-                    <p>Usuário 1</p>
+                    <p>Michele</p>
                 </a>
             </li>
             <!-- Perfil do usuário 2 -->
             <li class="profile">
-                <a href="home.html">
+                <a href="assets/netflix-plataform-main/catalogo/catalogo.html">
                     <img src="./assets/perfil02.png" alt="Imagem de uma gata magra" width="150px">
                     <p>Usuário 2</p>
                 </a>

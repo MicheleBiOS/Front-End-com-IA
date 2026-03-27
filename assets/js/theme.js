@@ -1,51 +1,68 @@
-// Script para gerenciar o tema escuro e claro
+// Script para gerenciar o tema escuro e claro com switch deslizante
 
-// Verifica o tema salvo no localStorage ou usa o preferência do sistema
+// Função para atualizar a imagem do perfil "adicionar"
+function updateAddProfileImage(isLightMode) {
+    const addProfileImg = document.querySelector('.add-profile img');
+    if (addProfileImg) {
+        if (isLightMode) {
+            addProfileImg.src = './assets/perfil-adicionar_branco.png';
+        } else {
+            addProfileImg.src = './assets/perfil-adicionar.png';
+        }
+    }
+}
+
+// Inicializa o tema ao carregar a página
 function initializeTheme() {
     const savedTheme = localStorage.getItem('theme');
+    const themeToggle = document.getElementById('theme-toggle');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Se há tema salvo, usa; senão, usa a preferência do sistema
+    // Determina qual tema usar
+    let shouldBeLightMode = false;
+    
     if (savedTheme) {
-        applyTheme(savedTheme);
-    } else if (!prefersDark) {
-        applyTheme('light');
+        shouldBeLightMode = savedTheme === 'light';
+    } else {
+        shouldBeLightMode = !prefersDark; // Se preferir light, usa light
+    }
+    
+    // Aplica o tema
+    if (shouldBeLightMode) {
+        document.body.classList.add('light-mode');
+        themeToggle.checked = true;
+        updateAddProfileImage(true);
+    } else {
+        document.body.classList.remove('light-mode');
+        themeToggle.checked = false;
+        updateAddProfileImage(false);
     }
 }
 
-// Aplica o tema ao documento
-function applyTheme(theme) {
-    const body = document.body;
+// Manipula a mudança de tema ao clicar no switch
+function handleThemeToggle(event) {
+    const isLightMode = event.target.checked;
     
-    if (theme === 'light') {
-        body.classList.add('light-mode');
+    if (isLightMode) {
+        document.body.classList.add('light-mode');
         localStorage.setItem('theme', 'light');
+        updateAddProfileImage(true);
     } else {
-        body.classList.remove('light-mode');
+        document.body.classList.remove('light-mode');
         localStorage.setItem('theme', 'dark');
+        updateAddProfileImage(false);
     }
 }
 
-// Simula e alterna entre os temas
-function toggleTheme() {
-    const body = document.body;
-    
-    if (body.classList.contains('light-mode')) {
-        applyTheme('dark');
-    } else {
-        applyTheme('light');
-    }
-}
-
-// Evento de clique no botão de alternância
+// Aguarda o carregamento da página
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggleButton = document.getElementById('theme-toggle');
+    const themeToggle = document.getElementById('theme-toggle');
     
-    // Inicializa o tema ao carregar a página
+    // Inicializa o tema
     initializeTheme();
     
-    // Adiciona evento de clique
-    if (themeToggleButton) {
-        themeToggleButton.addEventListener('click', toggleTheme);
+    // Adiciona listener para mudanças
+    if (themeToggle) {
+        themeToggle.addEventListener('change', handleThemeToggle);
     }
 });

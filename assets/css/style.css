@@ -46,46 +46,7 @@ h1 {
     color: var(--logo-color);
     font-size: 28px;
     font-weight: bold;
-}
 
-.theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: 2px solid var(--text-color);
-    cursor: pointer;
-    font-size: 20px;
-    padding: 8px 12px;
-    border-radius: 50%;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-}
-
-.sun-icon,
-.moon-icon {
-    display: none;
-    position: absolute;
-}
-
-.sun-icon {
-    display: inline;
-}
-
-body.light-mode .sun-icon {
-    display: none;
-}
-
-body.light-mode .moon-icon {
-    display: inline;
 }
 
 .profiles {
@@ -130,7 +91,89 @@ body.light-mode .moon-icon {
     margin-top: 10px;
     font-size: 1.2rem;
 }
+.switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 70px;
+    height: 35px;
+    cursor: pointer;
+}
 
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: relative;
+    cursor: pointer;
+    background-color: #1a1a1a;
+    border-radius: 50px;
+    width: 70px;
+    height: 35px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--text-color);
+}
+
+body.light-mode .slider {
+    background-color: #f0f0f0;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: 2px;
+    left: 0px;
+    background: transparent;
+    border: 2px solid var(--text-color);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: none;
+}
+
+input:checked + .slider::before {
+    transform: translateX(40px); */ width: 70px - 28px - 2px (border) * /
+}
+
+.icon {
+    position: absolute;
+    font-size: 16px;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.moon {
+    left: 2px;
+    opacity: 1;
+}
+
+.sun {
+    right: 2px;
+    opacity: 0;
+}
+
+input:checked + .slider .moon {
+    opacity: 0;
+}
+
+input:checked + .slider .sun {
+    opacity: 1;
+}
+
+body.light-mode .slider .moon {
+    opacity: 0;
+}
+
+body.light-mode .slider .sun {
+    opacity: 1;
+}
 /* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
     h1 {

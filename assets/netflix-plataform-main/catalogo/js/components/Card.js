@@ -10,6 +10,7 @@ export function createCard(item) {
     const img = document.createElement('img');
     img.src = item.img;
     img.alt = `Movie cover`;
+    img.style.objectPosition = item.imagePosition || 'center';
 
     const iframe = document.createElement('iframe');
     iframe.frameBorder = "0";
